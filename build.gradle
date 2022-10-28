@@ -1,0 +1,59 @@
+buildscript {
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:2.5.12")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'org.springframework.boot'
+
+repositories {
+	mavenLocal()
+	maven { url "https://mavensync.zkoss.org/maven2" }
+	maven { url "https://mavensync.zkoss.org/eval" }
+	mavenCentral()
+}
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+ext {
+	zkspringbootVersion = '2.5.12'
+	springbootVersion = '2.5.12'
+	zkspring = '4.0.0'
+	zkVersion = '9.6.0'
+	zatsVersion = '3.0.0'
+	junitVersion = '4.13.1'
+	searchJPAHibernateVersion = '1.2.0'
+	lombokVersion = '1.18.24'
+	mysqlVersion = '8.0.31'
+	javaxServerletAPIVersion='4.0.1'
+}
+
+configurations.testImplementation {
+	// conflicts with ZATS (which is using jetty)
+	exclude module: "spring-boot-starter-tomcat"
+}
+
+dependencies {
+	implementation ("org.zkoss.zkspringboot:zkspringboot-starter:${zkspringbootVersion}")
+	providedRuntime("javax.servlet:javax.servlet-api:${javaxServerletAPIVersion}")
+
+	implementation ("org.zkoss.zk:zkspring-core:${zkspring}")
+	implementation("org.zkoss.zk:zkplus:${zkVersion}")
+	implementation ("org.springframework.boot:spring-boot-starter-data-jpa:${springbootVersion}")
+	compileOnly ("org.springframework.boot:spring-boot-devtools:${springbootVersion}")
+	implementation ("com.googlecode.genericdao:search-jpa-hibernate:${searchJPAHibernateVersion}")
+	implementation("mysql:mysql-connector-java:${mysqlVersion}")
+
+	compileOnly("org.projectlombok:lombok:${lombokVersion}")
+	annotationProcessor("org.projectlombok:lombok:${lombokVersion}")
+	testImplementation "org.springframework.boot:spring-boot-starter-test:${springbootVersion}"
+
+	testImplementation "org.zkoss.zats:zats-mimic-ext96:${zatsVersion}"
+	testImplementation "junit:junit:${junitVersion}"
+}

@@ -1,0 +1,33 @@
+<zk xmlns:n="native">
+	<vlayout apply="com.eacuamba.loading_and_sorting.zkoss.controller.CityController">
+		<hbox align="center" pack="center" hflex="1">
+			<n:h1 style="display: inline-block">
+				Loading and sorting on demand using custom abstractListModel and Sortable
+			</n:h1>
+		</hbox>
+		<separator/>
+		<listbox id="listbox_city" mold="paging" pageSize="10">
+			<listhead>
+				<listheader label="Identifier"/>
+				<listheader label="Name"/>
+				<listheader label="State Code"/>
+				<listheader label="Country Name"/>
+				<listheader label="Phone Code"/>
+				<listheader label="Currency Name"/>
+				<listheader label="Region (Continent)"/>
+			</listhead>
+
+			<template name="model">
+				<listitem value="${each}">
+					<listcell label="${each.id}"/>
+					<listcell label="${each.name}"/>
+					<listcell label="${each.stateCode}"/>
+					<listcell label="${each.countryCode}"/>
+					<listcell label="${each.country.phoneCode}"/>
+					<listcell label="${each.country.currencyName}"/>
+					<listcell label="${each.country.region}"/>
+				</listitem>
+			</template>
+		</listbox>
+	</vlayout>
+</zk>

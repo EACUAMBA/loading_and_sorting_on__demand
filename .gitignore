@@ -1,0 +1,9 @@
+#Directory
+/target
+/build
+/.idea
+/.gradle
+
+#File
+*.iml
+pom.xml
