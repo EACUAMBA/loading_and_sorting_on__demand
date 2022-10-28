@@ -2,19 +2,19 @@
 	<vlayout apply="com.eacuamba.loading_and_sorting.zkoss.controller.CityController">
 		<hbox align="center" pack="center" hflex="1">
 			<n:h1 style="display: inline-block">
-				Loading and sorting on demand using custom abstractListModel and Sortable
+				Loading and sorting on demand using custom AbstractListModel and Sortable
 			</n:h1>
 		</hbox>
 		<separator/>
-		<listbox id="listbox_city" mold="paging" pageSize="10">
+		<listbox id="listbox_city" mold="paging" pageSize="6">
 			<listhead>
-				<listheader label="Identifier"/>
-				<listheader label="Name"/>
-				<listheader label="State Code"/>
-				<listheader label="Country Name"/>
-				<listheader label="Phone Code"/>
+				<listheader label="Identifier" hflex="min"/>
+				<listheader label="Name" sort="auto"/>
+				<listheader label="State Code" hflex="min"/>
+				<listheader label="Country Name" sort="auto"/>
+				<listheader label="Phone Code" hflex="min"/>
 				<listheader label="Currency Name"/>
-				<listheader label="Region (Continent)"/>
+				<listheader label="Region (Continent)" hflex="min"/>
 			</listhead>
 
 			<template name="model">
@@ -22,7 +22,7 @@
 					<listcell label="${each.id}"/>
 					<listcell label="${each.name}"/>
 					<listcell label="${each.stateCode}"/>
-					<listcell label="${each.countryCode}"/>
+					<listcell label="${each.country.name}"/>
 					<listcell label="${each.country.phoneCode}"/>
 					<listcell label="${each.country.currencyName}"/>
 					<listcell label="${each.country.region}"/>
