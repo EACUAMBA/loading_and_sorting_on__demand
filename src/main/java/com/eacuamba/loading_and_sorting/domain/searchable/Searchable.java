@@ -1,4 +1,4 @@
-package com.eacuamba.loading_and_sorting.domain.service;
+package com.eacuamba.loading_and_sorting.domain.searchable;
 
 import com.googlecode.genericdao.search.Search;
 
