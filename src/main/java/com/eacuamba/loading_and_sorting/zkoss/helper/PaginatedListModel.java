@@ -117,6 +117,6 @@ public class PaginatedListModel<T> extends AbstractListModel<T> implements Sorta
 
     @Override
     public String getSortDirection(Comparator<T> cmpr) {
-        return null;
+        return "natural";
     }
 }
