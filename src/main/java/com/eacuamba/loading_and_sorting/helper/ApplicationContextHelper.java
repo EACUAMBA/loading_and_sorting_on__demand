@@ -21,7 +21,7 @@ public class ApplicationContextHelper implements ApplicationContextAware {
         return (T)applicationContext.getBean(applicationContextBeanNamesForType[0], tClass);
     }
 
-    public <T> T getBean(Class<T> tClass){
+    public static <T> T getBean(Class<T> tClass){
         System.out.printf("Trying to find a bean named %s.%n", tClass.getName());
         return applicationContext.getBean(tClass);
     }
