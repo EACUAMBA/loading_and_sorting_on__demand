@@ -11,7 +11,7 @@ import java.util.List;
 @NoArgsConstructor
 @Builder(toBuilder = true)
 @Entity
-@Table(name = "countries")
+@Table(name = "countries", schema = "world")
 public class Country {
     @Id
     private Long id;

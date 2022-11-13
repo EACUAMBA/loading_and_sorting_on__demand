@@ -1,5 +1,5 @@
 <zk xmlns:n="native">
-	<vlayout apply="com.eacuamba.loading_and_sorting.zkoss.controller.CityController">
+	<vlayout apply="com.eacuamba.loading_and_sorting.zkoss.controller.CityPaginatedController">
 		<hbox align="center" pack="center" hflex="1">
 			<n:h1 style="display: inline-block">
 				Loading and sorting on demand using custom AbstractListModel and Sortable
@@ -9,9 +9,9 @@
 		<listbox id="listbox_city" mold="paging" pageSize="6">
 			<listhead>
 				<listheader label="Identifier" hflex="min"/>
-				<listheader label="Name" sort="auto"/>
+				<listheader label="Name" sort="auto(name)"/>
 				<listheader label="State Code" hflex="min"/>
-				<listheader label="Country Name" sort="auto"/>
+				<listheader label="Country Name" sort="auto(country.name)"/>
 				<listheader label="Phone Code" hflex="min"/>
 				<listheader label="Currency Name"/>
 				<listheader label="Region (Continent)" hflex="min"/>

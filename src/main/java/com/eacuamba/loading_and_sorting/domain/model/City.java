@@ -12,7 +12,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Builder(toBuilder = true)
 @Entity
-@Table(name = "cities")
+@Table(name = "cities", schema = "world")
 public class City {
     @Id
     private Long id;
@@ -23,6 +23,6 @@ public class City {
     @Column(name = "country_code")
     private String countryCode;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private Country country;
 }

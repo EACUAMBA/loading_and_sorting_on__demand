@@ -9,7 +9,7 @@
 		<listbox id="listbox_city" mold="paging" pageSize="6">
 			<listhead>
 				<listheader label="Identifier" hflex="min"/>
-				<listheader label="Name" sort="auto"/>
+				<listheader label="Name" sort="auto(name)"/>
 				<listheader label="State Code" hflex="min"/>
 				<listheader label="Country Name" sort="auto"/>
 				<listheader label="Phone Code" hflex="min"/>
